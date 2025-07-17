@@ -21,8 +21,11 @@ export function Questions() {
     ]
 
     return (
-        <div>
-            <h1 className="text-3xl text-center mb-16">frequently asked questions</h1>
+        <div className="mb-20">
+            <div>
+                <span className="text-blue-500 text-center block mb-2">FAQ</span>
+                <h1 className="text-3xl text-center mb-16">frequently asked questions</h1>
+            </div>
 
             {list.map((item) => (
                 <Card  key={item.id} className="p-8 py-4 gap-2 mb-6">
@@ -30,8 +33,6 @@ export function Questions() {
                     <p className="text-sm text-gray-500">{item.answer}</p>
                 </Card>
             ))}
-
-            
         </div>
     )
 }

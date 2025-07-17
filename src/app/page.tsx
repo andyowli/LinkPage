@@ -1,4 +1,7 @@
+import { Blog } from "@/components/blog";
+import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { Prepare } from "@/components/prepare";
 import { Price } from "@/components/price";
 import ProgressSteps from "@/components/ProgressSteps";
 import { Questions } from "@/components/questions";
@@ -49,6 +52,7 @@ export default function Home() {
     <div>
       <Navbar />
 
+
       <div className="container mx-auto max-w-6xl">
         <div className="mt-40 mb-14 flex justify-center">
           <h1 className="text-5xl text-center text-balance font-sans">
@@ -78,6 +82,17 @@ export default function Home() {
         <Price />
 
         <Questions />
+
+        <Blog />
+      </div>
+
+
+      <div>
+        <Prepare />
+      </div>
+
+      <div className="container mx-auto max-w-6xl">
+        <Footer />
       </div>
     </div>
   );

@@ -62,7 +62,7 @@ export default function ProgressSteps() {
                                     <div className="flex flex-col items-center">
                                         <div className="w-1 h-16 bg-gray-200 rounded-full overflow-hidden">
                                             <motion.div
-                                                className="w-full bg-red-500 rounded-full"
+                                                className="w-full bg-blue-500 rounded-full"
                                                 initial={{ height: "0%" }}
                                                 animate={{
                                                     height: isActive ? "100%" : isCompleted ? "0%" : "0%",
@@ -79,7 +79,7 @@ export default function ProgressSteps() {
                                     <div className="flex-shrink-0">
                                         <div
                                             className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                                                isActive ? "bg-red-500" : "bg-gray-100"
+                                                isActive ? "bg-blue-500" : "bg-gray-100"
                                         } transition-colors duration-300`}
                                         >
                                         <Icon

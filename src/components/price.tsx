@@ -72,14 +72,17 @@ export function Price() {
 
     return (
         <div className="mb-20">
-            <h1 className="text-4xl text-center mb-16">Pricing</h1>
+            <div>
+                <h1 className="text-4xl text-center mb-4">Pricing</h1>
+                <p className="text-center text-xl text-gray-500 mb-10">One time payment, permanent updates, building directory website</p>
+            </div>
 
             <Card className="grid grid-cols-2 py-8">
-                <div className="flex flex-col gap-8 justify-center items-center">
+                <div className="flex flex-col gap-8 justify-center items-center relative">
                     <h2 className="text-2xl">Special Price</h2>
                     <span className="text-3xl">$99 / <s>$199</s></span>
-                    <Button className="w-56 bg-blue-400">Get LinkPage</Button>
-                    <AvatarCircles numPeople={99} avatarUrls={avatars} />
+                    <Button className="w-56 bg-blue-500 hover:bg-[#409eff]/90">Get LinkPage</Button>
+                    <AvatarCircles numPeople={99} avatarUrls={avatars} className="absolute z-0 top-60"/>
                 </div>
                 <div className="flex flex-col items-start justify-center">
                     {serviceItem.map((item) => (
