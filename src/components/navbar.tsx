@@ -23,10 +23,10 @@ export const Navbar = () => {
 
                         <nav className="hidden md:flex items-center space-x-6">
                             <Link 
-                                href="/product" 
+                                href="#" 
                                 className="text-muted-foreground hover:text-foreground transition-colors" 
                             >
-                                Product
+                                Features
                             </Link>
                             <Link 
                                 href="/blog" 
@@ -39,6 +39,18 @@ export const Navbar = () => {
                                 className="text-muted-foreground hover:text-foreground transition-colors"
                             >
                                 Pricing
+                            </Link>
+                            <Link 
+                                href="#" 
+                                className="text-muted-foreground hover:text-foreground transition-colors"
+                            >
+                                Docs
+                            </Link>
+                            <Link 
+                                href="#" 
+                                className="text-muted-foreground hover:text-foreground transition-colors"
+                            >
+                                Demo
                             </Link>
                         </nav>
                     </div>

@@ -13,13 +13,13 @@ export function Footer() {
             links: [
                 { name: 'Features', href: '#' },
                 { name: 'Pricing', href: '#price' },
-                { name: 'Questions', href: '#' } 
+                { name: 'Questions', href: '#questions' } 
             ],
         },
         {
             title: 'Resources',
             links: [
-                { name: 'Blog', href: '#' },
+                { name: 'Blog', href: '#blog' },
                 { name: 'Documentation', href: '#' },
                 { name: 'Partners', href: '#' },
             ],

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CreditCard, FileText, LayoutList, Menu } from "lucide-react";
+import { Album, ArrowRight, BookText, CreditCard, FileText, LayoutList, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { SignOutButton, useUser } from "@clerk/nextjs";
@@ -23,21 +23,21 @@ export function MobileNav() {
       <SheetContent side="right" className="w-[300px] sm:w-[350px]">
         <SheetHeader>
           <SheetTitle className="text-left text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-            Product Collection
+            LinkPage
           </SheetTitle>
         </SheetHeader>
 
         <nav className="flex flex-col space-y-4 px-4 -mt-2">
           <Link
-            href="/product"
+            href="#"
             className="flex gap-2 px-2 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-colors"
             onClick={() => setOpen(false)}
           >
             <LayoutList className="h-5 w-5"/>
-            Product
+            Features
           </Link>
           <Link
-            href="/recommended"
+            href="#blog"
             className="flex gap-2 px-2 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-colors"
             onClick={() => setOpen(false)}
           >
@@ -45,12 +45,28 @@ export function MobileNav() {
             Blog
           </Link>
           <Link
-            href="/price"
+            href="#price"
             className="flex gap-2 px-2 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-colors"
             onClick={() => setOpen(false)}
           >
             <CreditCard className="h-5 w-5"/>
             Pricing
+          </Link>
+          <Link
+            href="#price"
+            className="flex gap-2 px-2 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            <BookText className="h-5 w-5"/>
+            Docs
+          </Link>
+          <Link
+            href="#price"
+            className="flex gap-2 px-2 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            <Album className="h-5 w-5"/>
+            Demo
           </Link>
           <div className="pt-4 mt-4 border-t">
             {user ? (

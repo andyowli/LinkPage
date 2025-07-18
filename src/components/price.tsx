@@ -2,7 +2,6 @@ import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Check } from "lucide-react";
 import { AvatarCircles } from "./magicui/avatar-circles";
-import { p } from "motion/react-client";
 
 export function Price() {
     const serviceItem = [

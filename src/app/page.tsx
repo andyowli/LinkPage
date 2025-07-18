@@ -79,11 +79,17 @@ export default function Home() {
 
         <Testimonials />
 
-        <Price />
+        <div id="price" className="scroll-mt-24">
+          <Price />
+        </div>
 
-        <Questions />
+        <div id="questions" className="scroll-mt-24">
+          <Questions />
+        </div>
 
-        <Blog />
+        <div id="blog" className="scroll-mt-24">
+          <Blog />
+        </div>
       </div>
 
 
