@@ -6,7 +6,10 @@ import { Price } from "@/components/price";
 import ProgressSteps from "@/components/ProgressSteps";
 import { Questions } from "@/components/questions";
 import { Testimonials } from "@/components/testimonials";
+import { Top } from "@/components/top";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import Link from "next/link";
 
 const skillsData = [
   {
@@ -54,12 +57,18 @@ export default function Home() {
 
 
       <div className="container mx-auto max-w-6xl">
-        <div className="mt-40 mb-14 flex justify-center">
-          <h1 className="text-5xl text-center text-balance font-sans">
-            <span className="mb-4 block">Launch your navigation</span>
-            <span>directory within 30 minutes</span>
-          </h1>
-        </div>
+        {/* <div className="mt-40 mb-14 flex flex-col justify-center">
+          <div className="text-center text-balance font-sans">
+            <span className="mb-4 text-5xl">Launch your navigation</span>
+            <span className="text-5xl">directory within 30 minutes</span>
+          </div>
+          <div className="flex justify-center mt-8">
+            <Link href="#price">
+              <Button className="bg-blue-500 hover:bg-[#409eff]/90">Get Link</Button>
+            </Link>
+          </div>
+        </div> */}
+        <Top />
 
         <div className="grid grid-cols-4 gap-4 mb-20">
           {skillsData.map((skill) => (
