@@ -1,7 +1,13 @@
+"use client"
+
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Check } from "lucide-react";
 import { AvatarCircles } from "./magicui/avatar-circles";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
+
+
 
 export function Price() {
     const serviceItem = [
@@ -69,32 +75,51 @@ export function Price() {
         },
     ];
 
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        once: true, // Only triggered once
+        margin: "-20% 0px -20% 0px" // Adjust trigger area
+    })
+
     return (
-        <div className="mb-20">
-            <div>
+        <div 
+            className="mb-20" 
+            ref={ref}
+        >
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5 }}
+            >
                 <h1 className="text-4xl text-center mb-4">Pricing</h1>
                 <p className="text-center text-xl text-gray-500 mb-10">One time payment, permanent updates, building directory website</p>
-            </div>
+            </motion.div>
 
-            <Card className="grid grid-cols-2 py-8">
-                <div className="flex flex-col gap-8 justify-center items-center relative">
-                    <h2 className="text-2xl">Special Price</h2>
-                    <span className="text-3xl">$99 / <s>$199</s></span>
-                    <Button className="w-56 bg-blue-500 hover:bg-[#409eff]/90">Get LinkPage</Button>
-                    <AvatarCircles numPeople={99} avatarUrls={avatars} className="absolute z-0 top-60"/>
-                </div>
-                <div className="flex flex-col items-start justify-center">
-                    {serviceItem.map((item) => (
-                        <div 
-                            key={item.id}
-                            className="flex flex-start gap-2"
-                        >
-                            <span className="text-green-500">{item.icon}</span>
-                            <p className="mb-4">{item.title}</p>
-                        </div>
-                    ))}
-                </div>
-            </Card>
+            <motion.div
+                initial={{ opacity: 0}}
+                animate={isInView ? { opacity: 1} : {}}
+                transition={{ duration: 2}}
+            >
+                <Card className="grid grid-cols-2 py-8">
+                    <div className="flex flex-col gap-8 justify-center items-center relative">
+                        <h2 className="text-2xl">Special Price</h2>
+                        <span className="text-3xl">$99 / <s>$199</s></span>
+                        <Button className="w-56 bg-blue-500 hover:bg-[#409eff]/90">Get LinkPage</Button>
+                        <AvatarCircles numPeople={99} avatarUrls={avatars} className="absolute z-0 top-60"/>
+                    </div>
+                    <div className="flex flex-col items-start justify-center">
+                        {serviceItem.map((item) => (
+                            <div 
+                                key={item.id}
+                                className="flex flex-start gap-2"
+                            >
+                                <span className="text-green-500">{item.icon}</span>
+                                <p className="mb-4">{item.title}</p>
+                            </div>
+                        ))}
+                    </div>
+                </Card>
+            </motion.div>
         </div>
     )
 }

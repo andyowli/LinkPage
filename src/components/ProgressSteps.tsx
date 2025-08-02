@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react";
-import { motion } from "motion/react";
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "motion/react";
 import { Upload, Zap, Star } from "lucide-react";
 import { Card } from "./ui/card";
 
@@ -42,12 +42,26 @@ export default function ProgressSteps() {
         return () => clearTimeout(timer)
     }, [currentStep, steps.length])
 
-    const displayStep = currentStep
+    const displayStep = currentStep;
+
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        once: true, // Only triggered once
+        margin: "-20% 0px -20% 0px" // Adjust trigger area
+    })
 
     return (
-        <div className="mb-20">
+        <div className="mb-20" ref={ref}>
             <div className="max-w-7xl mx-auto p-8">
-                <h1 className="text-center text-5xl mb-20">Just 3 steps to get started</h1>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5 }}
+                    className="text-center flex flex-col gap-4"
+                >   
+                    <span className="text-blue-500 text-lg">HOW IT WORKS</span>
+                    <h1 className="text-3xl mb-20">Just 3 steps to get started</h1>
+                </motion.div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
                     {/* Left Column - Steps */}
                     <div className="space-y-16">

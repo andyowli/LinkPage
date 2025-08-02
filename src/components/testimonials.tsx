@@ -1,6 +1,9 @@
+"use client"
+
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
-import { div } from "motion/react-client";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 
 const reviews = [
     {
@@ -116,9 +119,23 @@ const ReviewCard = ({
 };
 
 export function Testimonials() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        once: true, // Only triggered once
+        margin: "-20% 0px -20% 0px" // Adjust trigger area
+    })
+    
     return (
-        <div className="mb-20">
-            <h1 className="text-center text-4xl">What our customers are saying</h1>
+        <div className="mb-20" ref={ref}>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col text-center gap-4 mb-20"
+            >
+                <span className="text-blue-500 text-lg">TESTIONINALS</span>
+                <h1 className="text-center text-3xl">What our customers are saying</h1>
+            </motion.div>
             <div className="grid grid-cols-4  mt-8 h-[500px] relative overflow-hidden">
                 <Marquee pauseOnHover vertical className="[--duration:20s]">
                     {firstRow.map((review) => (

@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import { animate, stagger } from "motion";
 import { splitText } from "motion-plus";
+import { Card } from "./ui/card";
 
 export function Top() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -17,13 +18,14 @@ export function Top() {
             const titleLine1 = containerRef.current.querySelector("h1 > span:nth-child(1)");
             const titleLine2 = containerRef.current.querySelector("h1 > span:nth-child(2)");
             const button = containerRef.current.querySelector("button");
-            if(!titleLine1 || !titleLine2 || !button) {
+            const img = containerRef.current.querySelector("img");
+
+            if(!titleLine1 || !titleLine2 || !button || !img) {
                 console.error("Title elements not found");
                 return;
             }
             const { words: words1 } = splitText(titleLine1);
             const { words: words2 } = splitText(titleLine2);
-            // const { words: button1 } = splitText(button);
 
             animate(
                 words1,
@@ -61,6 +63,21 @@ export function Top() {
                     delay: 0.3,
                 }
             )
+
+            animate(
+                img,
+                { 
+                    opacity: [0, 1], 
+                    y: [20, 0],
+                    scale: [0.95, 1] 
+                },
+                {
+                    type: "spring",
+                    duration: 1.5,
+                    bounce: 0.25,
+                    delay: 0.3,
+                }
+            )
         })
     }, [])
 
@@ -71,11 +88,19 @@ export function Top() {
                     <span className="mb-4 block">Launch your navigation</span>
                     <span className="text-5xl">directory within 30 minutes</span>
                 </h1>
-                <div className="flex justify-center mt-8">
+                <div className="flex justify-center mt-8 mb-8">
                     <Link href="#price">
                         <Button className="bg-blue-500 hover:bg-[#409eff]/90">Get Link</Button>
                     </Link>
                 </div>
+
+                <Card className="bg-gray-200 p-4">
+                    <img 
+                        src="/images/topImg.png" 
+                        alt=""
+                        className="rounded-xl"
+                    />
+                </Card>
             </div>
         </div>
     )

@@ -1,4 +1,9 @@
+"use client"
+
+import { useRef } from "react";
 import { Card } from "./ui/card"
+import { motion, useInView } from "motion/react";
+import { div } from "motion/react-client";
 
 
 export function Questions() {
@@ -20,19 +25,59 @@ export function Questions() {
         },
     ]
 
-    return (
-        <div className="mb-20">
-            <div>
-                <span className="text-blue-500 text-center block mb-2">FAQ</span>
-                <h1 className="text-3xl text-center mb-16">frequently asked questions</h1>
-            </div>
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        once: true, // Only triggered once
+        margin: "-20% 0px -20% 0px" // Adjust trigger area
+    })
 
-            {list.map((item) => (
-                <Card  key={item.id} className="p-8 py-4 gap-2 mb-6">
-                    <h3 className="text-xl">{item.title}</h3>
-                    <p className="text-sm text-gray-500">{item.answer}</p>
-                </Card>
-            ))}
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3 // Each sub element animation interval is 0.2 seconds
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5 }
+        }
+    };
+
+    return (
+        <div className="mb-20" ref={ref}>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5 }}
+            >
+                <span className="text-blue-500 text-center text-lg block mb-2">FAQ</span>
+                <h1 className="text-3xl text-center mb-16">frequently asked questions</h1>
+            </motion.div>
+            
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+            >
+                {list.map((item) => (
+                    <motion.div
+                        variants={itemVariants}
+                        key={item.id}
+                    >
+                        <Card className="p-8 py-4 gap-2 mb-6">
+                            <h3 className="text-xl">{item.title}</h3>
+                            <p className="text-sm text-gray-500">{item.answer}</p>
+                        </Card>
+                    </motion.div>
+                ))}
+            </motion.div>
         </div>
     )
 }
