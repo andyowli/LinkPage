@@ -60,7 +60,7 @@ export default function ProgressSteps() {
                     className="text-center flex flex-col gap-4"
                 >   
                     <span className="text-blue-500 text-lg">HOW IT WORKS</span>
-                    <h1 className="text-3xl mb-20">Just 3 steps to get started</h1>
+                    <h1 className="text-3xl mb-20 dark:text-white/85">Just 3 steps to get started</h1>
                 </motion.div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
                     {/* Left Column - Steps */}
@@ -106,7 +106,7 @@ export default function ProgressSteps() {
 
                                     {/* Content */}
                                     <div className="flex-1">
-                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                                        <h3 className="text-xl font-semibold text-gray-900 mb-2 dark:text-white/85">
                                             {step.number}. {step.title}
                                         </h3>
                                         <p className="text-gray-600 leading-relaxed">{step.description}</p>

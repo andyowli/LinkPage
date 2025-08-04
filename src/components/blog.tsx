@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { Card } from "./ui/card";
 import { motion, useInView } from "motion/react";
+import Image from "next/image";
 
 export function Blog() {
     const ref = useRef(null);
@@ -23,7 +24,13 @@ export function Blog() {
             </motion.div>
 
             <Card className="py-0 gap-0">
-                <img src="/data.png" className="size-60 mx-auto"/>
+                <Image
+                src="/data.png" 
+                alt="No data"
+                width={200}
+                height={200}
+                className="size-60 mx-auto"/>
+                
             
                 <div className="flex flex-col items-center justify-center mb-8 mt-[-4rem] gap-4">
                     <h2>No data yet</h2>

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import Image from "next/image";
 
 const reviews = [
     {
@@ -83,12 +84,10 @@ const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
 
 const ReviewCard = ({
-    img,
     name,
     username,
     body,
 }: {
-    img: string;
     name: string;
     username: string;
     body: string;
@@ -103,10 +102,16 @@ const ReviewCard = ({
                 "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
             )}
         >
-            <blockquote className="mt-2 mb-4 text-sm">{body}</blockquote>
+            <blockquote className="mt-2 mb-4 text-sm dark:text-white/85">{body}</blockquote>
 
             <div className="flex flex-row items-center gap-2 mb-4">
-                <img className="rounded-full" width="40" height="40" alt="" src={img} />
+                <Image 
+                    className="rounded-full" 
+                    width="40" 
+                    height="40" 
+                    alt="head" 
+                    src="/images/01.jpg"
+                />
                 <div className="flex flex-col">
                     <figcaption className="text-sm font-medium dark:text-white">
                         {name}
@@ -129,12 +134,12 @@ export function Testimonials() {
         <div className="mb-20" ref={ref}>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5 }}
                 className="flex flex-col text-center gap-4 mb-20"
             >
                 <span className="text-blue-500 text-lg">TESTIONINALS</span>
-                <h1 className="text-center text-3xl">What our customers are saying</h1>
+                <h1 className="text-center text-3xl dark:text-white/85">What our customers are saying</h1>
             </motion.div>
             <div className="grid grid-cols-4  mt-8 h-[500px] relative overflow-hidden">
                 <Marquee pauseOnHover vertical className="[--duration:20s]">

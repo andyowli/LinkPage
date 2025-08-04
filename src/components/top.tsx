@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import { animate, stagger } from "motion";
 import { splitText } from "motion-plus";
 import { Card } from "./ui/card";
+import Image from "next/image";
 
 export function Top() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -95,10 +96,12 @@ export function Top() {
                 </div>
 
                 <Card className="bg-gray-200 p-4">
-                    <img 
+                    <Image
                         src="/images/topImg.png" 
-                        alt=""
-                        className="rounded-xl"
+                        alt="Top Image"
+                        width={1000} 
+                        height={1000}
+                        className="rounded-xl w-full"
                     />
                 </Card>
             </div>

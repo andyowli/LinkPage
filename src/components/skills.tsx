@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { Card } from "./ui/card";
 import { motion, useInView } from "motion/react";
+import Image from "next/image";
 
 const skillsData = [
     {
@@ -34,12 +35,12 @@ const skillsData = [
     {
         id: 6,
         title: "Tiptap",
-        description: "Building a Rich Text Editor.",
+        description: "Build a simple and convenient rich text editor.",
     },
     {
         id: 7,
         title: "Stripe",
-        description: "Excellent payment services.",
+        description: "Secure and excellent payment services.",
     },
 ]
 export function Skills() {
@@ -58,7 +59,7 @@ export function Skills() {
                 transition={{ duration: 0.5 }}
             >
                 <span className="text-blue-500 text-lg">POWERED BY</span>
-                <h1 className="text-3xl">Industry-standard Tech Stack</h1>
+                <h1 className="text-3xl dark:text-white/85">Industry-standard Tech Stack</h1>
             </motion.div>
             <div className="grid grid-cols-4 gap-4 mb-20">
                 {skillsData.map((skill) => (
@@ -71,9 +72,14 @@ export function Skills() {
                         <Card className="p-4">
                             <div className="flex items-center gap-4">
                                 <Card className="p-4">
-                                <img src="/next.svg" alt="" className="size-7"/>
+                                    <Image 
+                                        src="/next.svg"
+                                        alt="Next.js Icon"
+                                        width={40}
+                                        height={40}
+                                        />
                                 </Card>
-                                <h3 className="text-xl font-bold">{skill.title}</h3>
+                                <h3 className="text-xl font-bold dark:text-white/85">{skill.title}</h3>
                             </div>
                             <p className="text-gray-600 mt-2">{skill.description}</p>
                         </Card>

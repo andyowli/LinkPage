@@ -58,7 +58,7 @@ export function Questions() {
                 transition={{ duration: 0.5 }}
             >
                 <span className="text-blue-500 text-center text-lg block mb-2">FAQ</span>
-                <h1 className="text-3xl text-center mb-16">frequently asked questions</h1>
+                <h1 className="text-3xl text-center mb-16 dark:text-white/85">frequently asked questions</h1>
             </motion.div>
             
             <motion.div
@@ -72,7 +72,7 @@ export function Questions() {
                         key={item.id}
                     >
                         <Card className="p-8 py-4 gap-2 mb-6">
-                            <h3 className="text-xl">{item.title}</h3>
+                            <h3 className="text-xl dark:text-white/85">{item.title}</h3>
                             <p className="text-sm text-gray-500">{item.answer}</p>
                         </Card>
                     </motion.div>

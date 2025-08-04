@@ -91,7 +91,7 @@ export function Price() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5 }}
             >
-                <h1 className="text-4xl text-center mb-4">Pricing</h1>
+                <h1 className="text-4xl text-center mb-4 text-white/85">Pricing</h1>
                 <p className="text-center text-xl text-gray-500 mb-10">One time payment, permanent updates, building directory website</p>
             </motion.div>
 
@@ -101,10 +101,10 @@ export function Price() {
                 transition={{ duration: 2}}
             >
                 <Card className="grid grid-cols-2 py-8">
-                    <div className="flex flex-col gap-8 justify-center items-center relative">
+                    <div className="flex flex-col gap-8 justify-center items-center relative dark:text-white/85">
                         <h2 className="text-2xl">Special Price</h2>
                         <span className="text-3xl">$99 / <s>$199</s></span>
-                        <Button className="w-56 bg-blue-500 hover:bg-[#409eff]/90">Get LinkPage</Button>
+                        <Button className="w-56 bg-blue-500 hover:bg-[#409eff]/90 dark:text-white/85">Get LinkPage</Button>
                         <AvatarCircles numPeople={99} avatarUrls={avatars} className="absolute z-0 top-60"/>
                     </div>
                     <div className="flex flex-col items-start justify-center">
@@ -114,7 +114,7 @@ export function Price() {
                                 className="flex flex-start gap-2"
                             >
                                 <span className="text-green-500">{item.icon}</span>
-                                <p className="mb-4">{item.title}</p>
+                                <p className="mb-4 dark:text-white/85">{item.title}</p>
                             </div>
                         ))}
                     </div>
