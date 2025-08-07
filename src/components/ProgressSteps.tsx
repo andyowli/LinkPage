@@ -10,25 +10,25 @@ export default function ProgressSteps() {
     const steps = [
         {
             number: 1,
-            title: "Upload Your Data",
+            title: "Configure your directory",
             description:
-                "Simply upload your data to our secure platform. We support various file formats and data types to ensure a seamless integration with your existing systems.",
+                "Clone the repository and start modifying your content.",
             icon: Upload,
             image: "/images/01.jpg",
         },
         {
             number: 2,
-            title: "Click Start",
+            title: "Write management content",
             description:
-                "Our advanced AI algorithms automatically process and analyze your data, extracting valuable insights and patterns that would be difficult to identify manually.",
+                "Use content from CMS (Sanity platform).",
             icon: Zap,
             image: "/images/02.png",
         },
         {
             number: 3,
-            title: "Get Actionable Insights",
+            title: "Deploy project directory",
             description:
-                "Receive clear, actionable insights and recommendations based on the AI analysis. Use these insights to make data-driven decisions and improve your business strategies.",
+                "Deploy the project directory to the server platform you have chosen.",
             icon: Star,
             image: "/images/03.png",
         },
@@ -71,7 +71,7 @@ export default function ProgressSteps() {
                             const isCompleted = true && currentStep > index
 
                             return (
-                                <div key={index} className="flex items-start gap-4">
+                                <div key={index} className="flex items-center gap-4">
                                     {/* Progress Bar - Vertical */}
                                     <div className="flex flex-col items-center">
                                         <div className="w-1 h-16 bg-gray-200 rounded-full overflow-hidden">
@@ -117,9 +117,8 @@ export default function ProgressSteps() {
                     </div>
 
                     {/* Right Column - Image */}
-                    <div className="lg:sticky lg:top-8">
-                        <Card className="py-0 h-full">
-                            {/* <img src="/images/01.jpg" alt="" /> */}
+                    <div className="lg:sticky h-[340px]">
+                        <Card className="py-0 h-full min-h-[300px] lg:min-h-[300px]">
                             <motion.img
                                 key={displayStep}
                                 src={steps[displayStep].image}

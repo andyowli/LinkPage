@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
 import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const reviews = [
@@ -95,7 +95,7 @@ const ReviewCard = ({
     return (
         <figure
             className={cn(
-                "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-3",
+                "relative h-full w-full cursor-pointer overflow-hidden rounded-xl border p-3",
                 // light styles
                 "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
                 // dark styles
@@ -129,6 +129,23 @@ export function Testimonials() {
         once: true, // Only triggered once
         margin: "-20% 0px -20% 0px" // Adjust trigger area
     })
+
+    const [isLargeScreen, setIsLargeScreen] = useState(false);
+    const [isMediumScreen, setIsMediumScreen] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+            setIsLargeScreen(width >= 768);
+            setIsMediumScreen(width < 768);
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     
     return (
         <div className="mb-20" ref={ref}>
@@ -141,8 +158,8 @@ export function Testimonials() {
                 <span className="text-blue-500 text-lg">TESTIONINALS</span>
                 <h1 className="text-center text-3xl dark:text-white/85">What our customers are saying</h1>
             </motion.div>
-            <div className="grid grid-cols-4  mt-8 h-[500px] relative overflow-hidden">
-                <Marquee pauseOnHover vertical className="[--duration:20s]">
+            <div className="relative grid grid-cols-2 md:grid-cols-4 h-[500px] w-full flex-row items-center justify-center overflow-hidden">
+                {/* <Marquee pauseOnHover vertical className="[--duration:20s]">
                     {firstRow.map((review) => (
                         <ReviewCard key={review.id} {...review} />
                     ))}
@@ -161,7 +178,44 @@ export function Testimonials() {
                     {secondRow.map((review) => (
                         <ReviewCard key={review.id} {...review} />
                     ))}
-                </Marquee>
+                </Marquee> */}
+                {isLargeScreen ? (
+                    <>
+                        <Marquee pauseOnHover vertical className="[--duration:20s]">
+                            {firstRow.map((review) => (
+                                <ReviewCard key={review.id} {...review} />
+                            ))}
+                        </Marquee>
+                        <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
+                            {secondRow.map((review) => (
+                                <ReviewCard key={review.id} {...review} />
+                            ))}
+                        </Marquee>
+                        <Marquee pauseOnHover vertical className="[--duration:20s]">
+                            {secondRow.map((review) => (
+                                <ReviewCard key={review.id} {...review} />
+                            ))}
+                        </Marquee>
+                        <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
+                            {secondRow.map((review) => (
+                                <ReviewCard key={review.id} {...review} />
+                            ))}
+                        </Marquee>
+                    </>
+                ) : isMediumScreen ? (
+                    <>
+                        <Marquee pauseOnHover vertical className="[--duration:20s]">
+                            {firstRow.map((review) => (
+                                <ReviewCard key={review.id} {...review} />
+                            ))}
+                        </Marquee>
+                        <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
+                            {secondRow.map((review) => (
+                                <ReviewCard key={review.id} {...review} />
+                            ))}
+                        </Marquee>
+                    </>
+                ) : null}
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
             </div>

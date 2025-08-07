@@ -100,12 +100,15 @@ export function Price() {
                 animate={isInView ? { opacity: 1} : {}}
                 transition={{ duration: 2}}
             >
-                <Card className="grid grid-cols-2 py-8">
-                    <div className="flex flex-col gap-8 justify-center items-center relative dark:text-white/85">
+                <Card className="grid grid-cols-1 md:grid-cols-2 py-8">
+                    <div className="flex flex-col gap-8 justify-center items-center dark:text-white/85">
                         <h2 className="text-2xl">Special Price</h2>
                         <span className="text-3xl">$99 / <s>$199</s></span>
-                        <Button className="w-56 bg-blue-500 hover:bg-[#409eff]/90 dark:text-white/85">Get LinkPage</Button>
-                        <AvatarCircles numPeople={99} avatarUrls={avatars} className="absolute z-0 top-60"/>
+                        <div className="flex flex-col items-center justify-center gap-8">
+                            <Button className="w-56 bg-blue-500 hover:bg-[#409eff]/90 dark:text-white/85">Get LinkPage</Button>
+                            <AvatarCircles numPeople={99} avatarUrls={avatars} className="z-0"/>
+                        </div>
+                        
                     </div>
                     <div className="flex flex-col items-start justify-center">
                         {serviceItem.map((item) => (

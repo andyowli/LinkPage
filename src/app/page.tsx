@@ -55,7 +55,7 @@ export default function Home() {
       <Navbar />
 
 
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-6xl p-2">
         <Top />
 
         <Skills />
@@ -82,7 +82,7 @@ export default function Home() {
         <Prepare />
       </div>
 
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-6xl p-8">
         <Footer />
       </div>
     </div>

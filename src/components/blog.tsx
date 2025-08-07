@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Card } from "./ui/card";
 import { motion, useInView } from "motion/react";
 import Image from "next/image";
+import { Empty } from "antd";
 
 export function Blog() {
     const ref = useRef(null);
@@ -20,20 +21,17 @@ export function Blog() {
                 transition={{ duration: 0.5 }}
             >
                 <h4 className="text-center mb-6 text-blue-500">BLOG</h4>
-                <h1 className="text-4xl text-center">Latest Articles</h1>
+                <h1 className="text-4xl text-center dark:text-white/85">Latest Articles</h1>
             </motion.div>
 
             <Card className="py-0 gap-0">
-                <Image
-                src="/data.png" 
-                alt="No data"
-                width={200}
-                height={200}
-                className="size-60 mx-auto"/>
-                
-            
-                <div className="flex flex-col items-center justify-center mb-8 mt-[-4rem] gap-4">
-                    <h2>No data yet</h2>
+                <Empty 
+                    className="mt-6"
+                    description={<span className="dark:text-[#6B7280] text-gray-600">暂无数据</span>}
+                />
+
+                <div className="flex flex-col items-center justify-center mb-8 gap-4">
+                    {/* <h2>No data yet</h2> */}
                     <p className="text-[#6B7280] text-lg">There is currently no data content available.</p>
                 </div>
             </Card>

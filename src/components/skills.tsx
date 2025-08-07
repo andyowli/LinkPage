@@ -61,7 +61,7 @@ export function Skills() {
                 <span className="text-blue-500 text-lg">POWERED BY</span>
                 <h1 className="text-3xl dark:text-white/85">Industry-standard Tech Stack</h1>
             </motion.div>
-            <div className="grid grid-cols-4 gap-4 mb-20">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
                 {skillsData.map((skill) => (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
