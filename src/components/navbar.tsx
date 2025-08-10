@@ -42,7 +42,7 @@ export const Navbar = () => {
                                     width={30}
                                     height={30}
                                 />
-                                <span className="text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                                <span className="text-xl font-bold ">
                                     LinkPage
                                 </span>
                             </Link>
@@ -50,9 +50,9 @@ export const Navbar = () => {
 
                         <nav className="hidden md:flex items-center space-x-6">
                             <motion.div 
-                            variants={itemVariants}
-                            className="flex items-center space-x-6"
-                        >
+                                variants={itemVariants}
+                                className="flex items-center space-x-6"
+                            >
                                 <Link 
                                     href="#" 
                                     className="text-muted-foreground hover:text-foreground transition-colors" 

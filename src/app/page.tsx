@@ -1,4 +1,5 @@
 import { Blog } from "@/components/blog";
+import { Chat } from "@/components/chat";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { Prepare } from "@/components/prepare";
@@ -8,7 +9,6 @@ import { Questions } from "@/components/questions";
 import { Skills } from "@/components/skills";
 import { Testimonials } from "@/components/testimonials";
 import { Top } from "@/components/top";
-import { Card } from "@/components/ui/card";
 
 const skillsData = [
   {
@@ -85,6 +85,8 @@ export default function Home() {
       <div className="container mx-auto max-w-6xl p-8">
         <Footer />
       </div>
+
+      <Chat />
     </div>
   );
 }

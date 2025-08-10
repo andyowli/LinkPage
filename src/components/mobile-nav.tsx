@@ -6,6 +6,7 @@ import { Album, ArrowRight, BookText, CreditCard, FileText, LayoutList, Menu } f
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { SignOutButton, useUser } from "@clerk/nextjs";
+import Image from "next/image";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -21,8 +22,14 @@ export function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-[300px] sm:w-[350px]">
-        <SheetHeader>
-          <SheetTitle className="text-left text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+        <SheetHeader className="mt-8">
+          <SheetTitle className="text-left text-md font-bold flex items-center gap-3 ml-2">
+            <Image 
+              src="/logo.svg" 
+              alt="logo" 
+              width={26} 
+              height={26}
+            />
             LinkPage
           </SheetTitle>
         </SheetHeader>
